@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Mad LIbs - Elevator Pitch</title>
+</head>
+
+<body>
+    <div class="container"> <h1>Elevator Pitch</h1>
+        <p>To help entrepreneurs perfect the art of the micro pitch, follow the template below in Mad Libs style.</p>
+        <form method="get">
+            <div class="form-group">
+                <label for="yourName">Your name</label>
+                <input type="text" id="yourName" name="yourName" placeholder="Insert Your Name Here">
+                <br>
+                </div>
+            <div class="form-group">
+                <label for="Company">Company name</label>
+                <input type="text" id="Company" name="Company" placeholder="Insert Name of Company">
+                <br>
+                </div>
+            <div class="form-group">
+                <label for="Offering">A Defined Offering</label>
+                <input type="text" id="Offering" name="Offering" placeholder="Insert Defined Offering">
+                <br>
+                </div>
+            <div class="form-group">
+                <label for="Target">Target Audience</label>
+                <input type="text" id="Target" name="Target" placeholder="Insert Target Audience">
+                <br>
+                </div>
+            <div class="form-group">
+                <label for="Problem">What Problem are you Solving?</label>
+                <input type="text" id="Problem" name="Problem" placeholder="Solve a Problem">
+                <br>
+                </div>
+            <div class="form-group">
+                <label for="Solution">What is your Solution?</label>
+                <input type="text" id="Solution" name="Solution" placeholder="Insert Solution or Secret Sauce">
+                <br>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="sentence"></div>
+        </div>
+        </body>
+        <script>
+            // Hide the sentence until the user clicks the button
+            document.getElementById("sentence").style.display = "none";
+            // Get the query string parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            // Get the values from the query string
+            const yourName = urlParams.get('yourName');
+            const Company = urlParams.get('Company');
+            const Offering = urlParams.get('Offering');
+            const Target = urlParams.get('Target');
+            const Problem = urlParams.get('Problem');
+            const Solution = urlParams.get('Solution');
+            // If all the values are present, display the sentence
+            if (Company && Offering && Target && Problem && Solution) {
+                document.getElementById("sentence").style.display = "block";
+                document.getElementById("sentence").innerHTML = "Hi, My name is " + yourName +". My company, " + Company + ", is developing " + Offering + " to help " + Target + " " + Problem + " with " + Solution + ".";
+            }
+        </script>
+        </html>
+</body>
